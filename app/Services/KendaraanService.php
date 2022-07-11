@@ -9,12 +9,11 @@ use Illuminate\Contracts\Validation\Validator;
 
 class KendaraanService
 {
-
-    protected $kendaraanRepository;
+    protected $kendaraanRepositoty;
 
     public function __construct(KendaraanRepository $kendaraanRepository)
     {
-        $this->kendaraanRepository = $kendaraanRepository;
+        $this->kendaraanRepositoty = $kendaraanRepository;
     }
 
 
@@ -23,6 +22,5 @@ class KendaraanService
         $kendaraan = $this->kendaraanRepository->getAll();
 
         return $kendaraan;
-        // return response()->json($todos->toArray());
     }
 }

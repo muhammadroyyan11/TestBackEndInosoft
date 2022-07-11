@@ -8,17 +8,20 @@ use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
 {
-    private $kendaraanService;
+    protected $user;
+    protected $kendaraanService;
 
     public function __construct(KendaraanService $kendaraanService)
     {
-        $this->KendaraanService = $kendaraanService;
+        $this->middleware('auth:api');
+        $this->user = $this->guard()->user();
+        $this->kendaraanService = $kendaraanService;
     }
-    
-    public function get()
+
+    public function index(Request $request)
     {
         try {
-            return $this->KendaraanService->getAll();
+            return response()->json($this->KendaraanService->getAll());
         } catch (Exception $e) {
             return response()->json($e->getMessage());
         }

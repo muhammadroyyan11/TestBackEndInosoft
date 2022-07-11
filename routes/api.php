@@ -37,3 +37,13 @@ Route::group(
         Route::post('login', 'AuthController@login');
     }
 );
+Route::group(
+    [
+        'namespace' => 'App\Http\Controllers',
+        'prefix' => 'tempek'
+    ],
+    function ($router) {
+        Route::apiResource('kendaraan', 'KendaraanController');
+    }
+);
+
