@@ -37,13 +37,16 @@ Route::group(
         Route::post('login', 'AuthController@login');
     }
 );
+
 Route::group(
     [
+        'middleware' => 'api',
         'namespace' => 'App\Http\Controllers',
-        'prefix' => 'tempek'
+        'prefix' => 'v1'
     ],
-    function ($router) {
+    function () {
+        Route::apiResource('mobil', 'MobilController');
         Route::apiResource('kendaraan', 'KendaraanController');
+        Route::apiResource('motor', 'MotorController');
     }
 );
-

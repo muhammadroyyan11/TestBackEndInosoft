@@ -14,11 +14,10 @@ class KendaraanController extends Controller
     public function __construct(KendaraanService $kendaraanService)
     {
         $this->middleware('auth:api');
-        $this->user = $this->guard()->user();
         $this->kendaraanService = $kendaraanService;
     }
 
-    public function index(Request $request)
+    public function index(): \Illuminate\Http\JsonResponse
     {
         try {
             return response()->json($this->KendaraanService->getAll());
