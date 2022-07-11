@@ -35,11 +35,11 @@ return [
         ],
 
         'database' => [
-            'driver' => 'database',
+            'driver' => 'mongodb',
+            'connection' => 'mongodb-job',
             'table' => 'jobs',
             'queue' => 'default',
-            'retry_after' => 90,
-            'after_commit' => false,
+            'expire' => 60,
         ],
 
         'beanstalkd' => [
