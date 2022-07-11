@@ -32,4 +32,5 @@ class Kendaraan extends Model
         'update_at',
         'create_at',
     ];
+
 }

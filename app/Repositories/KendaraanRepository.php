@@ -18,4 +18,11 @@ class KendaraanRepository {
     {
         return Kendaraan::all();
     }
+
+    public function create($kendaraan)
+    {
+        $kendaraan = Kendaraan::create($kendaraan);
+
+        return $kendaraan;
+    }
 }
