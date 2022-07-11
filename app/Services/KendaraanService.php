@@ -9,11 +9,11 @@ use Illuminate\Contracts\Validation\Validator;
 
 class KendaraanService
 {
-    protected $kendaraanRepositoty;
+    protected $kendaraanRepository;
 
     public function __construct(KendaraanRepository $kendaraanRepository)
     {
-        $this->kendaraanRepositoty = $kendaraanRepository;
+        $this->kendaraanRepository = $kendaraanRepository;
     }
 
 

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreKendaraanRequest;
 use App\Services\KendaraanService;
 use Exception;
 use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
 {
-    protected $user;
     protected $kendaraanService;
 
     public function __construct(KendaraanService $kendaraanService)
@@ -20,7 +20,7 @@ class KendaraanController extends Controller
     public function index(): \Illuminate\Http\JsonResponse
     {
         try {
-            return response()->json($this->KendaraanService->getAll());
+            return response()->json($this->kendaraanService->getAll());
         } catch (Exception $e) {
             return response()->json($e->getMessage());
         }
