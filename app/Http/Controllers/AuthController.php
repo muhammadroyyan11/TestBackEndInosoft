@@ -41,7 +41,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|between:2,100',
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:8'
+            'password' => 'required|min:8'
         ]);
 
         if ($validator->fails()) {
@@ -68,7 +68,7 @@ class AuthController extends Controller
     {
         return response()->json($this->guard()->user());
     }
-    
+
     public function refresh(Request $request)
     {
         return $this->respondWithToken($this->guard()->refresh());

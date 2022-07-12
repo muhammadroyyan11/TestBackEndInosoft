@@ -28,11 +28,4 @@ class MobilRepository {
     {
         return Kendaraan::where('jenis_kendaraan', 'mobil')->get()->makeHidden(['stok']);
     }
-
-    public function create($kendaraan)
-    {
-        $kendaraan = Kendaraan::create($kendaraan);
-
-        return $kendaraan;
-    }
 }
