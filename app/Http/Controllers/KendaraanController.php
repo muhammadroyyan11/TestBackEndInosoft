@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreKendaraanRequest;
 use App\Services\KendaraanService;
 use Exception;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class KendaraanController extends Controller
@@ -17,7 +18,7 @@ class KendaraanController extends Controller
         $this->kendaraanService = $kendaraanService;
     }
 
-    public function index(): \Illuminate\Http\JsonResponse
+    public function index(): JsonResponse
     {
         try {
             return response()->json($this->kendaraanService->getAll());
@@ -26,7 +27,7 @@ class KendaraanController extends Controller
         }
     }
 
-    public function store(StoreKendaraanRequest $request): \Illuminate\Http\JsonResponse
+    public function store(StoreKendaraanRequest $request): JsonResponse
     {
         try {
             return response()->json($this->kendaraanService->create($request));
@@ -35,7 +36,25 @@ class KendaraanController extends Controller
         }
     }
 
-    public function destroy($id): \Illuminate\Http\JsonResponse
+    public function update(Request $request, $id): JsonResponse
+    {
+        try {
+            return response()->json($this->kendaraanService->update($request, $id));
+        } catch (Exception $e) {
+            return response()->json($e->getMessage());
+        }
+    }
+
+    public function show(Request $request, $id): JsonResponse
+    {
+        try {
+            return response()->json($this->kendaraanService->detail($id));
+        } catch (Exception $e) {
+            return response()->json($e->getMessage());
+        }
+    }
+
+    public function destroy($id): JsonResponse
     {
         try {
             return response()->json($this->kendaraanService->delete($id));

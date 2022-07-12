@@ -22,6 +22,8 @@ class Kendaraan extends Model
         'warna',
         'harga',
         'jenis_kendaraan',
+        'stok',
+        'terjual',
         'motor',
         'mobil'
     ];

@@ -42,6 +42,16 @@ class KendaraanService
         return $kendaraan;
     }
 
+    public function update($request, $id)
+    {
+        return $this->kendaraanRepository->update($request->all(), $id);
+    }
+
+    public function detail($id)
+    {
+        return $this->kendaraanRepository->detail($id);
+    }
+
     public function delete($id): string
     {
         return $this->kendaraanRepository->delete($id);

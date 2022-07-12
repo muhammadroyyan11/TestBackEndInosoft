@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Kendaraan;
+use http\Env\Request;
 
 
 class KendaraanRepository {
@@ -16,7 +17,7 @@ class KendaraanRepository {
 
     public function getAll()
     {
-        return Kendaraan::all('mobil');
+        return Kendaraan::all();
     }
 
     public function create($kendaraan)
@@ -26,23 +27,25 @@ class KendaraanRepository {
         return $kendaraan;
     }
 
-//    public function update($item, $id)
-//    {
-//        $kendaraan = Kendaraan::find($id);
-//
-//        $kendaraan->tahun_keluaran = $item['tahun_keluaran'];
-//        $kendaraan->warna = $item['warna'];
-//        $kendaraan->harga = $item['harga'];
-//        $kendaraan->jenis_kendaraan = $item['jenis_kendaraan'];
-//        $kendaraan->stok = $item['item'];
-//        $kendaraan->terjual = $item['terjual'];
-//
-//        return $kendaraan;
-//    }
-
-    public function delete($id)
+    public function detail($id)
     {
-        $kendaraan = Kendaraan::destroy($id) ? 'Data Deleted' : 'Data Not Found';
+        $kendaraan = Kendaraan::find($id);
+
+        return $kendaraan;
+    }
+
+    public function update($data, $id)
+    {
+        $kendaraan = Kendaraan::find($id);
+
+        $kendaraan->update($data);
+
+        return $kendaraan;
+    }
+
+    public function delete($id): string
+    {
+        $kendaraan = Kendaraan::destroy($id) ? 'Item Has Been Deleted' : 'Deleted Error';
 
         return $kendaraan;
     }
