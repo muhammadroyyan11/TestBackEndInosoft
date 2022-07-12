@@ -21,6 +21,9 @@ class Kendaraan extends Model
         'tahun_keluaran',
         'warna',
         'harga',
+        'jenis_kendaraan',
+        'motor',
+        'mobil'
     ];
 
     /**

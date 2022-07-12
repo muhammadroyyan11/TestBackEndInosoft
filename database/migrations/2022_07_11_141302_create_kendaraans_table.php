@@ -18,6 +18,9 @@ class CreateKendaraansTable extends Migration
             $table->year('tahun_keluaran');
             $table->string('warna');
             $table->decimal('harga');
+            $table->decimal('stok');
+            $table->decimal('terjual');
+            $table->string('jenis_kendaraan');
         });
     }
 

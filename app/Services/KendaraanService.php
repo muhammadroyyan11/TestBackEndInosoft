@@ -22,6 +22,11 @@ class KendaraanService
         return $this->kendaraanRepository->getAll();
     }
 
+    public function getMobil()
+    {
+        return $this->kendaraanRepository->getMobil();
+    }
+
     public function create($request)
     {
         $kendaraan = $this->kendaraanRepository->create($request->all());

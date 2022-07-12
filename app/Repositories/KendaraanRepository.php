@@ -16,7 +16,8 @@ class KendaraanRepository {
 
     public function getAll()
     {
-        return Kendaraan::all();
+        return Kendaraan::all('mobil');
+        return Kendaraan::where('jenis_kendaraan', 'motor')->get();
     }
 
     public function create($kendaraan)
@@ -24,5 +25,10 @@ class KendaraanRepository {
         $kendaraan = Kendaraan::create($kendaraan);
 
         return $kendaraan;
+    }
+
+    public function getMobil()
+    {
+        return Kendaraan::where('jenis_kendaraan', 'mobil')->get();
     }
 }

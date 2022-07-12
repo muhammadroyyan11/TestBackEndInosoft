@@ -3,38 +3,39 @@
 namespace App\Services;
 
 
+use App\Repositories\KendaraanRepository;
 use App\Repositories\MobilRepository;
-use App\Repositories\MotorRepository;
 use Exception;
 use Illuminate\Contracts\Validation\Validator;
 
-class MotorService
+class MobilService
 {
-    protected $motorRepositroy;
+    protected $mobilRepository;
 
-    public function __construct(MotorRepository $motorRepositroy)
+    public function __construct(MobilRepository $mobilRepository)
     {
-        $this->motorRepositroy = $motorRepositroy;
+        $this->mobilRepository = $mobilRepository;
     }
+
 
     public function getAll()
     {
-        return $this->motorRepositroy->getAll();
+        return $this->mobilRepository->getAll();
     }
 
     public function getStok()
     {
-        return $this->motorRepositroy->getStock();
+        return $this->mobilRepository->getStock();
     }
 
     public function getLaku()
     {
-        return $this->motorRepositroy->getLaku();
+        return $this->mobilRepository->getLaku();
     }
 
     public function create($request)
     {
-        $mobil = $this->motorRepositroy->create($request->all());
+        $mobil = $this->mobilRepository->create($request->all());
         $result = [];
 
         if ($mobil) {
