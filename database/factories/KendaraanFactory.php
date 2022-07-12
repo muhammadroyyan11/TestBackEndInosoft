@@ -17,6 +17,13 @@ class KendaraanFactory extends Factory
             'tahun_keluaran' => $this->faker->year(),
             'warna' => $this->faker->colorName(),
             'harga' => $this->faker->numberBetween($min = 10000000, $max = 700000000),
+            'motor' => [
+                'mesin' => $this->faker->domainWord(),
+                'suspensi' => $this->faker->company(),
+                'transmisi' => $this->faker->domainWord(),
+                'stok' => $this->faker->randomNumber(),
+                'terjual' => $this->faker->randomNumber()
+            ]
         ];
     }
 }
