@@ -17,7 +17,6 @@ class KendaraanRepository {
     public function getAll()
     {
         return Kendaraan::all('mobil');
-        return Kendaraan::where('jenis_kendaraan', 'motor')->get();
     }
 
     public function create($kendaraan)
@@ -27,8 +26,24 @@ class KendaraanRepository {
         return $kendaraan;
     }
 
-    public function getMobil()
+//    public function update($item, $id)
+//    {
+//        $kendaraan = Kendaraan::find($id);
+//
+//        $kendaraan->tahun_keluaran = $item['tahun_keluaran'];
+//        $kendaraan->warna = $item['warna'];
+//        $kendaraan->harga = $item['harga'];
+//        $kendaraan->jenis_kendaraan = $item['jenis_kendaraan'];
+//        $kendaraan->stok = $item['item'];
+//        $kendaraan->terjual = $item['terjual'];
+//
+//        return $kendaraan;
+//    }
+
+    public function delete($id)
     {
-        return Kendaraan::where('jenis_kendaraan', 'mobil')->get();
+        $kendaraan = Kendaraan::destroy($id) ? 'Data Deleted' : 'Data Not Found';
+
+        return $kendaraan;
     }
 }

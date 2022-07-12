@@ -41,4 +41,9 @@ class KendaraanService
 
         return $kendaraan;
     }
+
+    public function delete($id): string
+    {
+        return $this->kendaraanRepository->delete($id);
+    }
 }

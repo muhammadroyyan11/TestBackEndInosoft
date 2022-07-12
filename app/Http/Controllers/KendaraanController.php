@@ -34,4 +34,13 @@ class KendaraanController extends Controller
             return response()->json($e->getMessage());
         }
     }
+
+    public function destroy($id): \Illuminate\Http\JsonResponse
+    {
+        try {
+            return response()->json($this->kendaraanService->delete($id));
+        } catch (Exception $e) {
+            return response()->json($e->getMessage());
+        }
+    }
 }
