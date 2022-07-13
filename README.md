@@ -31,7 +31,7 @@ This project was created as a requirement for the recruitment process at PT. INO
 - **Run "php artisan serve" and try API at Postman (if you want to see link request, please read API Documentation)**
 - **Finish**
 
-### Installing
+### Unit test
 Unit test directory (tests/Feature/ExampleTest.php)
 
 run with this command
