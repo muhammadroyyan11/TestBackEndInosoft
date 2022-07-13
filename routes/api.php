@@ -49,6 +49,8 @@ Route::group(
         Route::get('mobilStok','MobilController@stock');
         Route::get('mobilTerjual','MobilController@laku');
         Route::apiResource('kendaraan', 'KendaraanController');
+        Route::delete('kendaraan/{kendaraan}', 'KendaraanController@destroy')->name('kendaraan.delete');
+        Route::put('kendaraan/{kendaraan}', 'KendaraanController@update')->name('kendaraan.update');
         Route::apiResource('motor', 'MotorController');
         Route::get('motorStok','MobilController@stock');
         Route::get('motorTerjual','MobilController@laku');

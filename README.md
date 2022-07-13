@@ -30,3 +30,11 @@ This project was created as a requirement for the recruitment process at PT. INO
 - **Add dummy data wih Run "php artisan tinker" -> "App\Models\Kendaraan::factory()->count(100)->create();" and "App\Models\User::factory()->count(1)->create();"**
 - **Run "php artisan serve" and try API at Postman (if you want to see link request, please read API Documentation)**
 - **Finish**
+
+### Installing
+Unit test directory (tests/Feature/ExampleTest.php)
+
+run with this command
+```sh
+php artisan test or .\vendor\bin\phpunit
+```
